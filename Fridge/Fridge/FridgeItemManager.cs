@@ -25,7 +25,7 @@ namespace Fridge
 
         public IList<FridgeItem> GetFridgeItems()
         {
-            return  new List<FridgeItem>(Repository.GetFridgeItems());
+            return new List<FridgeItem>(Repository.GetFridgeItems());
         }
 
         public int AddFridgeItem(FridgeItem item)

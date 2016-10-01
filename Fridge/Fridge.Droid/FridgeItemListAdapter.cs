@@ -33,7 +33,7 @@ namespace Fridge.Droid
 
         public override int Count => Items.Count;
 
-        public override Android.Views.View GetView (int position, Android.Views.View convertView,
+        public override Android.Views.View GetView(int position, Android.Views.View convertView,
             Android.Views.ViewGroup parent)
         {
 
@@ -42,7 +42,7 @@ namespace Fridge.Droid
                 (convertView ??
                  context.LayoutInflater.Inflate(Android.Resource.Layout.SimpleListItemChecked, parent, false)) as
                     CheckedTextView;
-            view.SetText(item.name == ""?"<new item>":item.name,TextView.BufferType.Normal);
+            view.SetText(item.name == "" ? "<new item>" : item.name, TextView.BufferType.Normal);
             //view.Checked == item.Done
             return view;
         }

@@ -27,8 +27,8 @@ namespace Fridge.Droid
         {
             base.OnCreate(bundle);
             //set our layout to be the home screen
-            SetContentView(Resource.Layout.HomeScreen);
-             
+            SetContentView(Resource.Layout.MainScreen);
+
             //find our controls
             itemListView = FindViewById<ListView>(Resource.Id.ItemList);
             addItemButton = FindViewById<Button>(Resource.Id.AddButton);
@@ -38,7 +38,7 @@ namespace Fridge.Droid
             {
                 addItemButton.Click += (sender, e) =>
                 {
-                    StartActivity(typeof (FridgeItemScreen));
+                    StartActivity(typeof(FridgeItemScreen));
                 };
             }
             //wire up item click handler
@@ -46,7 +46,7 @@ namespace Fridge.Droid
             {
                 itemListView.ItemClick += (object sender, AdapterView.ItemClickEventArgs e) =>
                 {
-                    var itemDetails = new Intent(this, typeof (FridgeItemScreen));
+                    var itemDetails = new Intent(this, typeof(FridgeItemScreen));
                     itemDetails.PutExtra("ItemID", items[e.Position].id);
                     StartActivity(itemDetails);
                 };
@@ -59,7 +59,7 @@ namespace Fridge.Droid
             items = FridgeApp.Current.FridgeManager.GetFridgeItems();
 
             //create our adapter
-            itemList = new FridgeItemListAdapter(this,items);
+            itemList = new FridgeItemListAdapter(this, items);
 
             //hook up adapter to our ListView
             itemListView.Adapter = itemList;

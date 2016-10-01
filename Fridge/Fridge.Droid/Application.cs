@@ -19,11 +19,11 @@ namespace Fridge.Droid
     [Application]
     public class FridgeApp : Application
     {
-     public   static FridgeApp Current { get; private set; }
+        public static FridgeApp Current { get; private set; }
         public FridgeItemManager FridgeManager { get; set; }
         private SQLiteConnection _conn;
 
-        public FridgeApp(IntPtr handle, global::Android.Runtime.JniHandleOwnership transfer) : base(handle,transfer)
+        public FridgeApp(IntPtr handle, global::Android.Runtime.JniHandleOwnership transfer) : base(handle, transfer)
         {
             Current = this;
         }

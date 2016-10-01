@@ -37,14 +37,14 @@ namespace Fridge.Droid
             {
                 item = FridgeApp.Current.FridgeManager.GetFridgeItem(itemId);
             }
-        //set our layout to be the homme screen
+            //set our layout to be the homme screen
             SetContentView(Resource.Layout.ItemDetails);
-            _nameEditText = FindViewsById<EditText>(Resource.Id.nameText);
-            _notesEditText = FindViewsById<EditText>(Resource.Id.noteText);
-            _saveButton = FindViewsById<Button>(Resource.Id.SaveButton);
+            _nameEditText = FindViewById<EditText>(Resource.Id.NameText);
+            _notesEditText = FindViewById<EditText>(Resource.Id.NotesText);
+            _saveButton = FindViewById<Button>(Resource.Id.SaveButton);
 
             //find all our controls
-            _cancelDeleteButton = FindViewsById<Button>(Resource.Id.CancelDeleteButton);
+            _cancelDeleteButton = FindViewById<Button>(Resource.Id.CancelDeleteButton);
 
             //set the cancel delete based on wether or not it's an existing task
             CancelDeleteButton.Text = (item.id == 0 ? "Cancel" : "Delete");
