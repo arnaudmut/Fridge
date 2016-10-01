@@ -6,9 +6,9 @@ using System.IO;
 
 namespace Fridge
 {
-    /* <summary> FridgeItemDatabase utilise ADO.NET pour creer le la table[items] et creer, lire, mettre a jour, effacer les donnees */
+    /* <summary> FridgeDatabase utilise ADO.NET pour creer le la table[items] et creer, lire, mettre a jour, effacer les donnees */
 
-    public class FridgeItemDatabase
+    public class FridgeDatabase
     {
         public SQLiteConnection fridgeDb;
         public string path;
@@ -18,20 +18,10 @@ namespace Fridge
         /// initialiser une nouvelle instance de <see cref="FrideDatabase"/>
         /// creer la base de donnees si elle n'exite pas
         /// </summary>
-        public FridgeItemDatabase(string dbPath)
+        public FridgeDatabase(SQLiteConnection conn)
         {
-            path = dbPath;
-            bool exists = System.IO.File(dbPath);
-            if (!exists)
-            {
-                fridgeDb = new SQLiteConnection("DATA SOURCE=" + dbPath);
-              fridgeDb.CreateTable<FridgeItem>();
-
-            }
-            else
-            {
-                // already exists do nothing}
-            }
+            fridgeDb = conn;
+            fridgeDb.CreateTable<FridgeItem>();
         }
 
         public IEnumerable<FridgeItem> GetItems()
@@ -42,7 +32,7 @@ namespace Fridge
             }
         }
 
-        public FridgeItem GeFridgeItem(int id)
+        public FridgeItem GetItem(int id)
         {
             lock (locker)
             {
@@ -50,7 +40,7 @@ namespace Fridge
             }
         }
 
-        public int AddFridgeItem(FridgeItem item)
+        public int AddItem(FridgeItem item)
         {
             lock (locker)
             {
@@ -67,7 +57,7 @@ namespace Fridge
             }
         }
 
-        public int deleteFridgeItem(int id)
+        public int DeleteItem(int id)
         {
             lock (locker)
             {

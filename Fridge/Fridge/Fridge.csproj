@@ -31,8 +31,10 @@
     <ConsolePause>false</ConsolePause>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="FridgeDatabaseADO.cs" />
+    <Compile Include="FridgeDatabase.cs" />
     <Compile Include="FridgeItem.cs" />
+    <Compile Include="FridgeItemManager.cs" />
+    <Compile Include="FridgeItemRepository.cs" />
     <Compile Include="MyClass.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SQLite.cs" />
