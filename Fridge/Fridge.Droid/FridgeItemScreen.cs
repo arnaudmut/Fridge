@@ -47,7 +47,7 @@ namespace Fridge.Droid
             _cancelDeleteButton = FindViewById<Button>(Resource.Id.CancelDeleteButton);
 
             //set the cancel delete based on wether or not it's an existing task
-            CancelDeleteButton.Text = (item.id == 0 ? "Cancel" : "Delete");
+            _cancelDeleteButton.Text = (item.id == 0 ? "Cancel" : "Delete");
             _nameEditText.Text = item.name;
             //_notesEditText.Text = item.notes;
 
